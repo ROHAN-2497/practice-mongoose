@@ -1,11 +1,13 @@
 import express from "express";
-const mongoose = require("mongoose");
-
+import mongoose from "mongoose";
+import cors from "cors";
 const app = express();
 const port = 5000;
 
-// Database Connection
+//Using Cors
+app.use();
 
+// Database Connection
 async function bootstrap() {
   try {
     await mongoose.connect("mongodb://127.0.0.1:27017/practice-mongoose");
