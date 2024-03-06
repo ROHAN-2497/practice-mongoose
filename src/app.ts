@@ -22,12 +22,12 @@ app.get("/", (req: Request, res: Response, next: NextFunction) => {
   interface IUser {
     id: string;
     role: "Student";
-    password: string;
     name: {
       firstName: "Rohan";
       middleName: "islam";
       lastName: "Fury";
     };
+    password: string;
     dateOfBirth?: string;
     gender: "male" | "female";
     email: string;
@@ -35,6 +35,7 @@ app.get("/", (req: Request, res: Response, next: NextFunction) => {
     presentAddress: string;
     parmanentAddress: string;
   }
+  // creating schema using interface
   const userSchema = new Schema<IUser>({
     id: { type: String, required: true },
     role: { type: String, required: true },
@@ -58,5 +59,21 @@ app.get("/", (req: Request, res: Response, next: NextFunction) => {
     parmanentAddress: { type: String, required: true },
   });
   const User = model<IUser>("User", userSchema);
+
+  const user = new User({
+    id: "434k",
+    role: "Student",
+    name: {
+      firstName: "Rohan",
+      middleName: "islam",
+      lastName: "Fury",
+    },
+    password: "jani na",
+    gender: "male",
+    email: "loveyouoishy@gmail.com",
+    contactNumber: "012378209",
+    presentAddress: "Ishurdi",
+    parmanentAddress: "Jannah",
+  });
 });
 export default app;
