@@ -12,6 +12,6 @@ app.use(express.urlencoded({ extended: true }));
 //Using Cors
 app.use(cors());
 // route
-app.get("/app/v1/user", userRoute);
+app.use("/app/v1/user", userRoute);
 
 export default app;

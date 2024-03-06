@@ -2,14 +2,14 @@ import User from "./user.model";
 
 export const createUserToDb = async () => {
   const user = await new User({
-    id: "69love",
+    id: "latest36",
     role: "Student",
     name: {
-      firstName: "Mr. Fury",
+      firstName: "Mr. Test",
       middleName: "islam",
       lastName: "Fury",
     },
-    password: "jani na",
+    password: "jani na je",
     gender: "male",
     email: "loveyouoishy@gmail.com",
     contactNumber: "012378209",
@@ -17,5 +17,5 @@ export const createUserToDb = async () => {
     parmanentAddress: "Jannah",
   });
   await user.save();
-  console.log(user);
+  return user;
 };
