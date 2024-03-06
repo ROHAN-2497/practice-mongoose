@@ -1,7 +1,7 @@
 import app from "./app";
 import mongoose from "mongoose";
 
-const port = 5000;
+const port: number = 5000;
 
 // Database Connection
 async function bootstrap() {
