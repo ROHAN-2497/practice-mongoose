@@ -37,7 +37,7 @@ app.get("/", (req: Request, res: Response, next: NextFunction) => {
   }
   // creating schema using interface
   const userSchema = new Schema<IUser>({
-    id: { type: String, required: true },
+    id: { type: String, required: true, unique: true },
     role: { type: String, required: true },
     password: { type: String, required: true },
     name: {
@@ -59,21 +59,25 @@ app.get("/", (req: Request, res: Response, next: NextFunction) => {
     parmanentAddress: { type: String, required: true },
   });
   const User = model<IUser>("User", userSchema);
-
-  const user = new User({
-    id: "434k",
-    role: "Student",
-    name: {
-      firstName: "Rohan",
-      middleName: "islam",
-      lastName: "Fury",
-    },
-    password: "jani na",
-    gender: "male",
-    email: "loveyouoishy@gmail.com",
-    contactNumber: "012378209",
-    presentAddress: "Ishurdi",
-    parmanentAddress: "Jannah",
-  });
+  const createUserToDb = async () => {
+    const user = new User({
+      id: "69love",
+      role: "Student",
+      name: {
+        firstName: "Mr. Fury",
+        middleName: "islam",
+        lastName: "Fury",
+      },
+      password: "jani na",
+      gender: "male",
+      email: "loveyouoishy@gmail.com",
+      contactNumber: "012378209",
+      presentAddress: "Ishurdi",
+      parmanentAddress: "Jannah",
+    });
+    await user.save();
+    console.log(user);
+  };
+  createUserToDb();
 });
 export default app;
