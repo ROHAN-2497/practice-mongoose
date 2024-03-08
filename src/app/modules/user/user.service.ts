@@ -2,7 +2,7 @@ import User from "./user.model";
 
 export const createUserToDb = async () => {
   const user = await new User({
-    id: "latest36",
+    id: "latestf36",
     role: "Student",
     name: {
       firstName: "Mr. Test",
