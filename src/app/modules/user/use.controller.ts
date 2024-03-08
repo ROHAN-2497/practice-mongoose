@@ -6,7 +6,8 @@ export const createUser = async (
   res: Response,
   next: NextFunction
 ) => {
-  const user = await createUserToDb();
+  const data = req.body;
+  const user = await createUserToDb(data);
   res.status(200).json({
     status: "success",
     data: user,
