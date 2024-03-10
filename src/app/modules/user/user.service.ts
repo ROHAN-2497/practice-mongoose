@@ -27,10 +27,9 @@ export const getUserByIdFromDb = async (
   return user;
 };
 
-export const getAdminUsersFromDb = async (
-  payload: string
-): Promise<IUser | null> => {
-  const user1 = new User(); // Static User
+export const getAdminUsersFromDb = async () => {
+  const admins = await User.getAdminUsers;
+  return admins;
 };
 
 // instanceMethods  --> instance er methods
